@@ -71,7 +71,7 @@ namespace CloudAcademy.Bitcoin.Tests
         [InlineData("NZD", 2, 30191.1340)]
         [InlineData("USD", 1, 10095.9106)]
         [InlineData("USD", 2 ,20191.8212)]
-        public async void ConvertBitcoinsToNZD(string currency, int coins, double convertedDollars)
+        public async void ConvertBitcoinsToDollars(string currency, int coins, double convertedDollars)
         {
             //act
             var dollars = await mockConverter.ConvertBitcoins(currency, coins);
