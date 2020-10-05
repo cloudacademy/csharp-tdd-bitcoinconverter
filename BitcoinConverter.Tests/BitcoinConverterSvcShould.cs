@@ -71,7 +71,7 @@ namespace CloudAcademy.Bitcoin.Tests
         [InlineData("NZD", 2, 30191.1340)]
         [InlineData("USD", 1, 10095.9106)]
         [InlineData("USD", 2 ,20191.8212)]
-        public async void ConvertBitcoinsToNZD(string currency, int coins, double convertedDollars)
+        public async void ConvertBitcoinsToDollars(string currency, int coins, double convertedDollars)
         {
             //act
             var dollars = await mockConverter.ConvertBitcoins(currency, coins);
@@ -79,6 +79,35 @@ namespace CloudAcademy.Bitcoin.Tests
             //assert
             var expected = convertedDollars;
             Assert.Equal(expected, dollars);
+        }
+
+        [Fact]
+        public async void ReturnZeroWhenServiceUnavailable(){
+            var handlerMock = new Mock<HttpMessageHandler>();
+            var response = new HttpResponseMessage
+            {
+                StatusCode = HttpStatusCode.ServiceUnavailable,
+                Content = new StringContent("problems..."),
+            };
+
+            handlerMock
+               .Protected()
+               .Setup<Task<HttpResponseMessage>>(
+                  "SendAsync",
+                  ItExpr.IsAny<HttpRequestMessage>(),
+                  ItExpr.IsAny<CancellationToken>())
+               .ReturnsAsync(response);
+
+            var httpClient = new HttpClient(handlerMock.Object);
+
+            var converter = new ConverterSvc(httpClient);
+
+            //act
+            var amount = await converter.ConvertBitcoins("USD", 5);
+
+            //assert
+            var expected = -1;
+            Assert.Equal(expected, amount);
         }
     }
 }

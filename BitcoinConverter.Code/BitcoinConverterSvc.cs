@@ -53,7 +53,16 @@ namespace CloudAcademy.Bitcoin
 
         public async Task<double> ConvertBitcoins(string currency, int coins)
         {
-            var dollars = await GetExchangeRate(currency) * coins;
+            double exchangeRate = await GetExchangeRate(currency);
+            double dollars = 0;
+
+            if (exchangeRate >= 0){
+                dollars = exchangeRate * coins;
+            }
+            else{
+                dollars = -1;
+            }
+
             return dollars;
         }
 
