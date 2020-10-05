@@ -26,7 +26,8 @@ namespace CloudAcademy.Bitcoin
         {
             double rate = 0;
 
-            try{
+            try
+            {
                 var response = await this.client.GetStringAsync(BITCOIN_NZDUSD_URL);
                 var jsonDoc = JsonDocument.Parse(Encoding.ASCII.GetBytes(response));
 
@@ -56,10 +57,12 @@ namespace CloudAcademy.Bitcoin
             double exchangeRate = await GetExchangeRate(currency);
             double dollars = 0;
 
-            if (exchangeRate >= 0){
+            if (exchangeRate >= 0)
+            {
                 dollars = exchangeRate * coins;
             }
-            else{
+            else
+            {
                 dollars = -1;
             }
 
