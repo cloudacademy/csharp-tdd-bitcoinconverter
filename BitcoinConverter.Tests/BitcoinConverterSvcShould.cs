@@ -10,8 +10,8 @@ namespace CloudAcademy.Bitcoin.Tests
         public void GetNZDExchangeRate()
         {
             //act
-            var coverterSvc = new ConverterSvc();
-            var exchangeRate = coverterSvc.GetExchangeRate("NZD");
+            var converterSvc = new ConverterSvc();
+            var exchangeRate = converterSvc.GetExchangeRate("NZD");
 
             //assert
             var expected = 100;
@@ -22,8 +22,8 @@ namespace CloudAcademy.Bitcoin.Tests
         public void GetUSDExchangeRate()
         {
             //act
-            var coverterSvc = new ConverterSvc();
-            var exchangeRate = coverterSvc.GetExchangeRate("USD");
+            var converterSvc = new ConverterSvc();
+            var exchangeRate = converterSvc.GetExchangeRate("USD");
 
             //assert
             var expected = 200;
@@ -34,8 +34,8 @@ namespace CloudAcademy.Bitcoin.Tests
         public void ConvertBitcoinsToNZD()
         {
             //act
-            var coverterSvc = new ConverterSvc();
-            var dollars = coverterSvc.ConvertBitcoins("NZD", 1);
+            var converterSvc = new ConverterSvc();
+            var dollars = converterSvc.ConvertBitcoins("NZD", 1);
 
             //assert
             var expected = 100;
@@ -46,8 +46,8 @@ namespace CloudAcademy.Bitcoin.Tests
         public void ConvertBitcoinsToUSD()
         {
             //act
-            var coverterSvc = new ConverterSvc();
-            var dollars = coverterSvc.ConvertBitcoins("USD", 1);
+            var converterSvc = new ConverterSvc();
+            var dollars = converterSvc.ConvertBitcoins("USD", 1);
 
             //assert
             var expected = 200;
