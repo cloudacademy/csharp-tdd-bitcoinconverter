@@ -40,7 +40,7 @@ namespace CloudAcademy.Bitcoin.Tests
         [InlineData("NZD",2,200)]
         [InlineData("USD",1,200)]
         [InlineData("USD",2,400)]
-        public void ConvertBitcoinsToNZD(string currency, int coins, int convertedDollars)
+        public void ConvertBitcoinsToDollars(string currency, int coins, int convertedDollars)
         {
             //act
             var coverterSvc = new ConverterSvc();
