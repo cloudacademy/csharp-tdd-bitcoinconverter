@@ -6,12 +6,18 @@ namespace CloudAcademy.Bitcoin.Tests
 {
     public class BitcoinConverterSvcShould
     {
+        private ConverterSvc converterSvc;
+
+        public BitcoinConverterSvcShould()
+        {
+            converterSvc = new ConverterSvc();
+        }
+
         [Fact]
         public void GetNZDExchangeRate()
         {
             //act
-            var coverterSvc = new ConverterSvc();
-            var exchangeRate = coverterSvc.GetExchangeRate("NZD");
+            var exchangeRate = converterSvc.GetExchangeRate("NZD");
 
             //assert
             var expected = 100;
@@ -22,35 +28,26 @@ namespace CloudAcademy.Bitcoin.Tests
         public void GetUSDExchangeRate()
         {
             //act
-            var coverterSvc = new ConverterSvc();
-            var exchangeRate = coverterSvc.GetExchangeRate("USD");
+            var exchangeRate = converterSvc.GetExchangeRate("USD");
 
             //assert
             var expected = 200;
             Assert.Equal(expected, exchangeRate);
         }
 
-        [Fact]
-        public void ConvertBitcoinsToNZD()
+        [Theory]
+        [InlineData("NZD",1,100)]
+        [InlineData("NZD",2,200)]
+        [InlineData("USD",1,200)]
+        [InlineData("USD",2,400)]
+        public void ConvertBitcoinsToNZD(string currency, int coins, int convertedDollars)
         {
             //act
             var coverterSvc = new ConverterSvc();
-            var dollars = coverterSvc.ConvertBitcoins("NZD", 1);
+            var dollars = converterSvc.ConvertBitcoins(currency, coins);
 
             //assert
-            var expected = 100;
-            Assert.Equal(expected, dollars);
-        }
-
-        [Fact]
-        public void ConvertBitcoinsToUSD()
-        {
-            //act
-            var coverterSvc = new ConverterSvc();
-            var dollars = coverterSvc.ConvertBitcoins("USD", 1);
-
-            //assert
-            var expected = 200;
+            var expected = convertedDollars;
             Assert.Equal(expected, dollars);
         }
     }
