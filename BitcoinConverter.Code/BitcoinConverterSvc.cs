@@ -14,6 +14,7 @@ namespace CloudAcademy.Bitcoin
 
         public ConverterSvc()
         {
+            //test comment
             this.client = new HttpClient();
         }
 
