@@ -32,8 +32,10 @@ Branches are used within this repo to demonstrate the TDD workflow (red, green, 
 
 * [step9](https://github.com/cloudacademy/csharp-tdd-bitcoinconverter/tree/step9) - updates the existing GitHub Action to generate a unit test code coverage report and have it automatically uploaded into https://coveralls.io/ for viewing
 
+**Note**: The [master](https://github.com/cloudacademy/csharp-tdd-bitcoinconverter/tree/master) branch (this branch) contains the same code and configuration as contained in the [step9](https://github.com/cloudacademy/csharp-tdd-bitcoinconverter/tree/step9) branch
+
 ## Vagrant
-The following ```Vagrantfile``` can be used to spin up an Ubuntu 18.04 instance - which can then be used to install the .Net Core 3.1 SDK:
+The provided [Vagrantfile](https://github.com/cloudacademy/csharp-tdd-bitcoinconverter/blob/master/Vagrantfile) can be used to spin up an Ubuntu 18.04 instance - which can then be used to install the .Net Core 3.1 SDK, allowing you to easily follow along:
 
 ```
 Vagrant.configure("2") do |config|
@@ -44,7 +46,7 @@ Vagrant.configure("2") do |config|
 end
 ```
 
-With this ```Vagrantfile``` in place, run the following Vagrant command to launch the instance:
+Use the following Vagrant command to launch the instance:
 
 ```
 vagrant up
@@ -72,3 +74,5 @@ To confirm that the .Net Core 3.1 SDK has been successfully installed, run the f
 ```
 dotnet --version
 ```
+
+Back on your local workstation, you can use Visual Studio Code or any other editor to open and modify the contents of the current folder - with all changes being automatically synced back into the ```/vagrant``` directory within the Vagrant instance.
