@@ -3,7 +3,7 @@
 [![Build Status](https://github.com/cloudacademy/csharp-tdd-bitcoinconverter/workflows/bitcoinconverter.build/badge.svg)](https://github.com/cloudacademy/csharp-tdd-bitcoinconverter/actions) [![Coverage Status](https://coveralls.io/repos/github/cloudacademy/csharp-tdd-bitcoinconverter/badge.svg?branch=master)](https://coveralls.io/github/cloudacademy/csharp-tdd-bitcoinconverter?branch=master)
 
 ## Background
-The following repo contains .Net Core 3.1 C# source code developed using TDD (Test Driven Development) practices. The example codebase is demonstrates the use of the following tools related to performing TDD:
+The following repo contains .Net Core 3.1 C# source code developed using TDD (Test Driven Development) practices. The example codebase demonstrates the use of the following tools related to performing TDD:
 
 * xUnit - a unit testing framework, used to implement unit tests
 * Moq - a mocking library, used to create mocks for external dependencies
@@ -11,14 +11,14 @@ The following repo contains .Net Core 3.1 C# source code developed using TDD (Te
 * https://coveralls.io/ - used to provide unit test code coverage reports
 
 ## Repo Branches
-Branches are used within this repo to demonstrate the TDD workflow (red, green, refactor), as well as highlighting other project management configuration area. These branches allow you to quickly jump ahead to the area of interest:
+Branches are used within this repo to demonstrate the TDD workflow (red, green, refactor), as well as highlighting other project management configuration areas. These branches allow you to quickly jump ahead to the area of interest:
 
 ### Branches
 * [step1](https://github.com/cloudacademy/csharp-tdd-bitcoinconverter/tree/step1) - demonstrates using the ```dotnet``` command to setup the project structure and create the first set of unit tests using xUnit and the ```[Fact]``` attribute
 
-* [step2](https://github.com/cloudacademy/csharp-tdd-bitcoinconverter/tree/step2) - refactors the unit tests and codebase and using xUnit and the ```[Theory]``` attribute
+* [step2](https://github.com/cloudacademy/csharp-tdd-bitcoinconverter/tree/step2) - refactors current unit tests and codebase using the ```[Theory]``` attribute - also demonstrates the use of ```dotnet watch`` to automatically execute all unit tests whenever the source code is changed
 
-* [step3](https://github.com/cloudacademy/csharp-tdd-bitcoinconverter/tree/step3) - refactors the unit tests and codebase to use the async/await keywords to manage HTTP comms with the Bitcoin service
+* [step3](https://github.com/cloudacademy/csharp-tdd-bitcoinconverter/tree/step3) - refactors the unit tests and codebase to use the async/await keywords to manage asynchronous HTTP comms with the Bitcoin API online service
 
 * [step4](https://github.com/cloudacademy/csharp-tdd-bitcoinconverter/tree/step4) - introduces the Moq library to mock out the external Bitcoin API service dependency
 
