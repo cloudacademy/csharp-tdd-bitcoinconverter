@@ -16,7 +16,7 @@ Branches are used within this repo to demonstrate the TDD workflow (red, green, 
 ### Branches
 * [step1](https://github.com/cloudacademy/csharp-tdd-bitcoinconverter/tree/step1) - demonstrates using the ```dotnet``` command to setup the project structure and create the first set of unit tests using xUnit and the ```[Fact]``` attribute
 
-* [step2](https://github.com/cloudacademy/csharp-tdd-bitcoinconverter/tree/step2) - refactors current unit tests and codebase using the ```[Theory]``` attribute - also demonstrates the use of ```dotnet watch`` to automatically execute all unit tests whenever the source code is changed
+* [step2](https://github.com/cloudacademy/csharp-tdd-bitcoinconverter/tree/step2) - refactors current unit tests and codebase using the ```[Theory]``` attribute - also demonstrates the use of the ```dotnet watch``` command to automatically execute all unit tests whenever the source code is changed
 
 * [step3](https://github.com/cloudacademy/csharp-tdd-bitcoinconverter/tree/step3) - refactors the unit tests and codebase to use the async/await keywords to manage asynchronous HTTP comms with the Bitcoin API online service
 
