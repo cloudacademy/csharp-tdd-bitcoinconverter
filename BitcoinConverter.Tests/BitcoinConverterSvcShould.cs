@@ -12,7 +12,7 @@ namespace CloudAcademy.Bitcoin.Tests
 {
     public class BitcoinConverterSvcShould
     {
-        private const string MOCK_RESPONSE_JSON = @"{""bpi"":{""USD"":{""code"":""USD"",""rate"":""10,095.9106"",""description"":""United States Dollar"",""rate_float"":10095.9106},""NZD"":{""code"":""NZD"",""rate"":""15,095.5670"",""description"":""New Zealand Dollar"",""rate_float"":15095.567}}}";
+        private const string MOCK_RESPONSE_JSON = @"{""time"": {""updated"": ""Oct 15, 2020 22:55:00 UTC"",""updatedISO"": ""2020-10-15T22:55:00+00:00"",""updateduk"": ""Oct 15, 2020 at 23:55 BST""},""chartName"": ""Bitcoin"",""bpi"": {""USD"": {""code"": ""USD"",""symbol"": ""&#36;"",""rate"": ""11,486.5341"",""description"": ""United States Dollar"",""rate_float"": 11486.5341},""GBP"": {""code"": ""GBP"",""symbol"": ""&pound;"",""rate"": ""8,900.8693"",""description"": ""British Pound Sterling"",""rate_float"": 8900.8693},""EUR"": {""code"": ""EUR"",""symbol"": ""&euro;"",""rate"": ""9,809.3278"",""description"": ""Euro"",""rate_float"": 9809.3278}}}";
 
         private ConverterSvc mockConverter;
         
@@ -45,33 +45,23 @@ namespace CloudAcademy.Bitcoin.Tests
         }
 
         [Fact]
-        public async void GetNZDExchangeRate()
-        {
-            //act
-            var exchangeRate = await mockConverter.GetExchangeRate("NZD");
-
-            //assert
-            double expected = 15095.5670;
-            Assert.Equal(expected, exchangeRate);
-        }
-
-        [Fact]
         public async void GetUSDExchangeRate()
         {
             //act
-            var exchangeRate = await mockConverter.GetExchangeRate("USD");
+            var exchangeRate = await mockConverter.GetExchangeRate(ConverterSvc.Currency.USD);
 
             //assert
-            double expected = 10095.9106;
+            double expected = 11486.5341;
             Assert.Equal(expected, exchangeRate);
         }
 
         [Theory]
-        [InlineData("NZD", 1, 15095.5670)]
-        [InlineData("NZD", 2, 30191.1340)]
-        [InlineData("USD", 1, 10095.9106)]
-        [InlineData("USD", 2 ,20191.8212)]
-        public async void ConvertBitcoinsToDollars(string currency, int coins, double convertedDollars)
+        [InlineData(ConverterSvc.Currency.USD, 1, 11486.5341)]
+        [InlineData(ConverterSvc.Currency.USD, 2 ,22973.0682)]
+        [InlineData(ConverterSvc.Currency.USD, 2.5 ,28716.3353)]
+        [InlineData(ConverterSvc.Currency.GBP, 1, 8900.8693)]
+        [InlineData(ConverterSvc.Currency.EUR, 1, 9809.3278)]
+        public async void ConvertBitcoinsToDollars(ConverterSvc.Currency currency, double coins, double convertedDollars)
         {
             //act
             var dollars = await mockConverter.ConvertBitcoins(currency, coins);
@@ -80,5 +70,6 @@ namespace CloudAcademy.Bitcoin.Tests
             var expected = convertedDollars;
             Assert.Equal(expected, dollars);
         }
+
     }
 }
