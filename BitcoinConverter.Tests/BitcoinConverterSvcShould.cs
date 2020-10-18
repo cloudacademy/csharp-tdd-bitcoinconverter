@@ -17,7 +17,7 @@ namespace CloudAcademy.Bitcoin.Tests
         public async void GetNZDExchangeRate()
         {
             //act
-            var exchangeRate = await converterSvc.GetExchangeRate("NZD");
+            var exchangeRate = await converterSvc.GetExchangeRate("USD");
 
             //assert
             double expected = 100.00;
@@ -35,11 +35,24 @@ namespace CloudAcademy.Bitcoin.Tests
             Assert.Equal(expected, exchangeRate);
         }
 
+        [Fact]
+        public async void GetEURExchangeRate()
+        {
+            //act
+            var exchangeRate = await converterSvc.GetExchangeRate("EUR");
+
+            //assert
+            double expected = 300.00;
+            Assert.Equal(expected, exchangeRate);
+        }
+
         [Theory]
-        [InlineData("NZD",1,100.00)]
-        [InlineData("NZD",2,200.00)]
-        [InlineData("USD",1,200.00)]
-        [InlineData("USD",2,400.00)]
+        [InlineData("USD",1,100.00)]
+        [InlineData("USD",2,200.00)]
+        [InlineData("GBP",1,200.00)]
+        [InlineData("GBP",2,400.00)]
+        [InlineData("EUR",1,300.00)]
+        [InlineData("EUR",2,600.00)]
         public async void ConvertBitcoinsToDollars(string currency, int coins, double convertedDollars)
         {
             //act
