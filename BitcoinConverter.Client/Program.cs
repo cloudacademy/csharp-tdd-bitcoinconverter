@@ -10,17 +10,21 @@ namespace CloudAcademy.Bitcoin.Client
         {
             var converter = new ConverterSvc();
 
-            try{
-                //var version = converter.GetVersion();
-                var amountUSD = await converter.ConvertBitcoins("USD", 5);
-                var amountNZD = await converter.ConvertBitcoins("NZD", 3);
+            while(true)
+            {
+                try{
+                    Console.Write("Coins: ");
+                    var coins = Double.Parse(Console.ReadLine());
+                    Console.Write("Currency (USD, GBP, or EUR): ");
+                    var currency = (ConverterSvc.Currency)Enum.Parse(typeof(ConverterSvc.Currency), Console.ReadLine(), true);
 
-                //Console.WriteLine("Version: {0}", version);
-                Console.WriteLine("USD : {0}", amountUSD);
-                Console.WriteLine("NZD : {0}", amountNZD);
-            }
-            catch {
-                Console.WriteLine("Error converting...");
+                    var amount = await converter.ConvertBitcoins(currency, coins);
+
+                    Console.WriteLine("{0} Bitcoins = {1} {2}", coins, amount, currency);
+                    }
+                catch {
+                    //swallow
+                }
             }
         }
     }
