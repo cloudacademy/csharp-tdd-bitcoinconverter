@@ -12,7 +12,8 @@ namespace CloudAcademy.Bitcoin.Client
 
             while(true)
             {
-                try{
+                try
+                {
                     Console.Write("Coins: ");
                     var coins = Double.Parse(Console.ReadLine());
                     Console.Write("Currency (USD, GBP, or EUR): ");
@@ -21,8 +22,9 @@ namespace CloudAcademy.Bitcoin.Client
                     var amount = await converter.ConvertBitcoins(currency, coins);
 
                     Console.WriteLine("{0} Bitcoins = {1} {2}", coins, amount, currency);
-                    }
-                catch {
+                }
+                catch 
+                {
                     //swallow
                 }
             }
