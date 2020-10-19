@@ -14,7 +14,7 @@ namespace CloudAcademy.Bitcoin.Tests
         }
 
         [Fact]
-        public void GetNZDExchangeRate()
+        public void GetUSDExchangeRate()
         {
             //act
             var exchangeRate = converterSvc.GetExchangeRate("USD");
@@ -25,7 +25,7 @@ namespace CloudAcademy.Bitcoin.Tests
         }
 
         [Fact]
-        public void GetUSDExchangeRate()
+        public void GetGBPExchangeRate()
         {
             //act
             var exchangeRate = converterSvc.GetExchangeRate("GBP");
