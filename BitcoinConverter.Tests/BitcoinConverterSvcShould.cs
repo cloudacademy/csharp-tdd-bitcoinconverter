@@ -14,7 +14,7 @@ namespace CloudAcademy.Bitcoin.Tests
         }
 
         [Fact]
-        public async void GetNZDExchangeRate()
+        public async void GetUSDExchangeRate()
         {
             //act
             var exchangeRate = await converterSvc.GetExchangeRate("USD");
@@ -25,10 +25,10 @@ namespace CloudAcademy.Bitcoin.Tests
         }
 
         [Fact]
-        public async void GetUSDExchangeRate()
+        public async void GetGBPExchangeRate()
         {
             //act
-            var exchangeRate = await converterSvc.GetExchangeRate("USD");
+            var exchangeRate = await converterSvc.GetExchangeRate("GBP");
 
             //assert
             double expected = 200.00;
