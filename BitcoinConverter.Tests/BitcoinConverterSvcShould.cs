@@ -45,7 +45,7 @@ namespace CloudAcademy.Bitcoin.Tests
         }
 
         [Fact]
-        public async void GetUSDExchangeRate()
+        public async void GetExchangeRate_USD_ReturnsUSDExchangeRate()
         {
             //act
             var exchangeRate = await mockConverter.GetExchangeRate(ConverterSvc.Currency.USD);
@@ -55,13 +55,35 @@ namespace CloudAcademy.Bitcoin.Tests
             Assert.Equal(expected, exchangeRate);
         }
 
+        [Fact]
+        public async void GetExchangeRate_GBP_ReturnsGBPExchangeRate()
+        {
+            //act
+            var exchangeRate = await mockConverter.GetExchangeRate(ConverterSvc.Currency.GBP);
+
+            //assert
+            double expected = 8900.8693;
+            Assert.Equal(expected, exchangeRate);
+        }
+
+        [Fact]
+        public async void GetExchangeRate_EUR_ReturnsEURExchangeRate()
+        {
+            //act
+            var exchangeRate = await mockConverter.GetExchangeRate(ConverterSvc.Currency.EUR);
+
+            //assert
+            double expected = 9809.3278;
+            Assert.Equal(expected, exchangeRate);
+        }
+
         [Theory]
         [InlineData(ConverterSvc.Currency.USD, 1, 11486.5341)]
         [InlineData(ConverterSvc.Currency.USD, 2 ,22973.0682)]
         [InlineData(ConverterSvc.Currency.USD, 2.5 ,28716.3353)]
         [InlineData(ConverterSvc.Currency.GBP, 1, 8900.8693)]
         [InlineData(ConverterSvc.Currency.EUR, 1, 9809.3278)]
-        public async void ConvertBitcoinsToDollars(ConverterSvc.Currency currency, double coins, double convertedDollars)
+        public async void ConvertBitcoins_BitCoinsToCurrency_ReturnsCurrency(ConverterSvc.Currency currency, double coins, double convertedDollars)
         {
             //act
             var dollars = await mockConverter.ConvertBitcoins(currency, coins);
@@ -72,7 +94,7 @@ namespace CloudAcademy.Bitcoin.Tests
         }
 
         [Fact]
-        public async void ReturnZeroWhenServiceUnavailable()
+        public async void ConvertBitcoins_BitcoinAPIServiceUnavailable_ReturnsZero()
         {
             var handlerMock = new Mock<HttpMessageHandler>();
             var response = new HttpResponseMessage
@@ -102,7 +124,7 @@ namespace CloudAcademy.Bitcoin.Tests
         }
 
         [Fact]
-        public async void ThrowArgumentExceptionWhenCoinsLessThanZero()
+        public async void ConvertBitcoins_BitcoinsLessThanZero_ThrowsArgumentException()
         {
             //act
             Task result() => mockConverter.ConvertBitcoins(ConverterSvc.Currency.USD, -1);
