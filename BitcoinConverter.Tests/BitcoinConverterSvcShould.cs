@@ -16,6 +16,7 @@ namespace CloudAcademy.Bitcoin.Tests
         
         public BitcoinConverterSvcShould()
         {
+            //arrange
             mockConverter = GetMockBitcoinConverterService();
         }
 
