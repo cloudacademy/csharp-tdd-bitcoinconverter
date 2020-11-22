@@ -7,8 +7,10 @@ namespace CloudAcademy.Bitcoin.Tests
         [Fact]
         public void GetExchangeRate_USD_ReturnsUSDExchangeRate()
         {
-            //act
+            //arrange
             var converterSvc = new ConverterSvc();
+
+            //act
             var exchangeRate = converterSvc.GetExchangeRate("USD");
 
             //assert
@@ -19,8 +21,10 @@ namespace CloudAcademy.Bitcoin.Tests
         [Fact]
         public void GetExchangeRate_GBP_ReturnsGBPExchangeRate()
         {
-            //act
+            //arrange
             var converterSvc = new ConverterSvc();
+
+            //act
             var exchangeRate = converterSvc.GetExchangeRate("GBP");
 
             //assert
@@ -31,8 +35,10 @@ namespace CloudAcademy.Bitcoin.Tests
         [Fact]
         public void GetExchangeRate_EUR_ReturnsEURExchangeRate()
         {
-            //act
+            //arrange
             var converterSvc = new ConverterSvc();
+
+            //act
             var exchangeRate = converterSvc.GetExchangeRate("EUR");
 
             //assert
@@ -43,8 +49,10 @@ namespace CloudAcademy.Bitcoin.Tests
         [Fact]
         public void ConvertBitcoins_1BitCoinToUSD_ReturnsUSDDollars()
         {
-            //act
+            //arrange
             var converterSvc = new ConverterSvc();
+
+            //act
             var dollars = converterSvc.ConvertBitcoins("USD", 1);
 
             //assert
@@ -55,8 +63,10 @@ namespace CloudAcademy.Bitcoin.Tests
         [Fact]
         public void ConvertBitcoins_1BitCoinToGBP_ReturnsGBPPounds()
         {
-            //act
+            //arrange
             var converterSvc = new ConverterSvc();
+
+            //act
             var dollars = converterSvc.ConvertBitcoins("GBP", 1);
 
             //assert
@@ -67,8 +77,10 @@ namespace CloudAcademy.Bitcoin.Tests
         [Fact]
         public void ConvertBitcoins_1BitCoinToEUR_ReturnsEURDollars()
         {
-            //act
+            //arrange
             var converterSvc = new ConverterSvc();
+
+            //act
             var dollars = converterSvc.ConvertBitcoins("EUR", 1);
 
             //assert
