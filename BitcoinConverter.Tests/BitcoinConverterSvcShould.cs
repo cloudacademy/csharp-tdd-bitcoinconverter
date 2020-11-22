@@ -8,6 +8,7 @@ namespace CloudAcademy.Bitcoin.Tests
 
         public BitcoinConverterSvcShould()
         {
+            //arrange
             converterSvc = new ConverterSvc();
         }
 
