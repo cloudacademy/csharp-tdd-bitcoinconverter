@@ -81,9 +81,11 @@ namespace CloudAcademy.Bitcoin.Tests
         [Theory]
         [InlineData(ConverterSvc.Currency.USD, 1, 11486.5341)]
         [InlineData(ConverterSvc.Currency.USD, 2 ,22973.0682)]
-        [InlineData(ConverterSvc.Currency.USD, 2.5 ,28716.3353)]
+        [InlineData(ConverterSvc.Currency.USD, 2.5 ,28716.3353)]        
         [InlineData(ConverterSvc.Currency.GBP, 1, 8900.8693)]
+        [InlineData(ConverterSvc.Currency.GBP, 2, 17801.7386)]
         [InlineData(ConverterSvc.Currency.EUR, 1, 9809.3278)]
+        [InlineData(ConverterSvc.Currency.EUR, 2, 19618.6556)]
         public async void ConvertBitcoins_BitCoinsToCurrency_ReturnsCurrency(ConverterSvc.Currency currency, double coins, double convertedDollars)
         {
             //act
