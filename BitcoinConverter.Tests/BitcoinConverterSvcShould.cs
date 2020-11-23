@@ -47,7 +47,7 @@ namespace CloudAcademy.Bitcoin.Tests
         public async void GetExchangeRate_USD_ReturnsUSDExchangeRate()
         {
             //act
-            var exchangeRate = await mockConverter.GetExchangeRate(ConverterSvc.Currency.USD);
+            var exchangeRate = await mockConverter.GetExchangeRate("USD");
 
             //assert
             double expected = 11486.5341;
@@ -58,7 +58,7 @@ namespace CloudAcademy.Bitcoin.Tests
         public async void GetExchangeRate_GBP_ReturnsGBPExchangeRate()
         {
             //act
-            var exchangeRate = await mockConverter.GetExchangeRate(ConverterSvc.Currency.GBP);
+            var exchangeRate = await mockConverter.GetExchangeRate("GBP");
 
             //assert
             double expected = 8900.8693;
@@ -69,7 +69,7 @@ namespace CloudAcademy.Bitcoin.Tests
         public async void GetExchangeRate_EUR_ReturnsEURExchangeRate()
         {
             //act
-            var exchangeRate = await mockConverter.GetExchangeRate(ConverterSvc.Currency.EUR);
+            var exchangeRate = await mockConverter.GetExchangeRate("EUR");
 
             //assert
             double expected = 9809.3278;
@@ -77,12 +77,13 @@ namespace CloudAcademy.Bitcoin.Tests
         }
 
         [Theory]
-        [InlineData(ConverterSvc.Currency.USD, 1, 11486.5341)]
-        [InlineData(ConverterSvc.Currency.USD, 2 ,22973.0682)]
-        [InlineData(ConverterSvc.Currency.USD, 2.5 ,28716.3353)]
-        [InlineData(ConverterSvc.Currency.GBP, 1, 8900.8693)]
-        [InlineData(ConverterSvc.Currency.EUR, 1, 9809.3278)]
-        public async void ConvertBitcoins_BitCoinsToCurrency_ReturnsCurrency(ConverterSvc.Currency currency, double coins, double convertedDollars)
+        [InlineData("USD", 1, 11486.5341)]
+        [InlineData("USD", 2 ,22973.0682)]
+        [InlineData("GBP", 1, 8900.8693)]
+        [InlineData("GBP", 2, 17801.7386)]
+        [InlineData("EUR", 1, 9809.3278)]
+        [InlineData("EUR", 2, 19618.6556)]
+        public async void ConvertBitcoins_BitCoinsToCurrency_ReturnsCurrency(string currency, int coins, double convertedDollars)
         {
             //act
             var dollars = await mockConverter.ConvertBitcoins(currency, coins);
@@ -91,6 +92,5 @@ namespace CloudAcademy.Bitcoin.Tests
             var expected = convertedDollars;
             Assert.Equal(expected, dollars);
         }
-
     }
 }

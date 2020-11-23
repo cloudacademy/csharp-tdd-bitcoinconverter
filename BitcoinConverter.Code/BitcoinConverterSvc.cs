@@ -59,50 +59,39 @@ namespace CloudAcademy.Bitcoin
             this.client = httpClient;
         }
 
-        public enum Currency 
+        public async Task<double> GetExchangeRate(string currency)
         {
-            USD,
-            GBP,
-            EUR        
-        }
+            var response = await this.client.GetStringAsync(BITCOIN_CURRENTPRICE_URL);
 
-        public async Task<double> GetExchangeRate(Currency currency)
-        {
-            double rate = 0;
-
-            try
+            if(currency.Equals("USD"))
             {
-                var response = await this.client.GetStringAsync(BITCOIN_CURRENTPRICE_URL);
                 var jsonDoc = JsonDocument.Parse(Encoding.ASCII.GetBytes(response));
+                var rate = jsonDoc.RootElement.GetProperty("bpi").GetProperty(currency).GetProperty("rate");
 
-                var rateStr = jsonDoc.RootElement.GetProperty("bpi").GetProperty(currency.ToString()).GetProperty("rate");
-
-                rate = Double.Parse(rateStr.GetString());
+                return Double.Parse(rate.GetString());
             }
-            catch
+            else if (currency.Equals("GBP"))
             {
-                rate = -1;
+                var jsonDoc = JsonDocument.Parse(Encoding.ASCII.GetBytes(response));
+                var rate = jsonDoc.RootElement.GetProperty("bpi").GetProperty(currency).GetProperty("rate");
+
+                return Double.Parse(rate.GetString());
+            }
+            else if (currency.Equals("EUR"))
+            {
+                var jsonDoc = JsonDocument.Parse(Encoding.ASCII.GetBytes(response));
+                var rate = jsonDoc.RootElement.GetProperty("bpi").GetProperty(currency).GetProperty("rate");
+
+                return Double.Parse(rate.GetString());
             }
 
-            return Math.Round(rate, 4);
+            return 0;
         }
 
-        public async Task<double> ConvertBitcoins(Currency currency, double coins)
+        public async Task<double> ConvertBitcoins(string currency, int coins)
         {
-            double dollars = 0;
-            
-            double exchangeRate = await GetExchangeRate(currency);
-
-            if (exchangeRate >= 0)
-            {
-                dollars = exchangeRate * coins;
-            }
-            else
-            {
-                dollars = -1;
-            }
-
-            return Math.Round(dollars, 4);
+            var dollars = await GetExchangeRate(currency) * coins;
+            return dollars;
         }
 
     }
