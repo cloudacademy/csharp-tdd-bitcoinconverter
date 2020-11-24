@@ -54,32 +54,6 @@ curl -s https://api.coindesk.com/v1/bpi/currentprice.json | jq .
 }
 ```
 
-Create new Dotnet solution:
-
-```
-dotnet new sln -o BitcoinConverter && cd ./BitcoinConverter/
-```
-
-Create new xUnit Dotnet Project for unit tests and add it to solution:
-
-```
-dotnet new xunit -o BitcoinConverter.Tests --framework netcoreapp3.1
-dotnet sln add ./BitcoinConverter.Tests/BitcoinConverter.Tests.csproj
-```
-
-Create new Dotnet Class Library which will contain the TDD implementation:
-
-```
-dotnet new classlib -o BitcoinConverter.Code --framework netcoreapp3.1
-dotnet sln add ./BitcoinConverter.Code/BitcoinConverter.Code.csproj
-```
-
-Update the xUnit Dotnet Project - add reference to the `BitcoinConverter.Code` Class Library for unit testing purposes
-
-```
-dotnet add BitcoinConverter.Tests/BitcoinConverter.Tests.csproj reference BitcoinConverter.Code/BitcoinConverter.Code.csproj
-```
-
 Commands to compile and test the Dotnet Solution
 
 ```
