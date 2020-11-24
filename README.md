@@ -5,13 +5,6 @@ The following repo contains source code developed using TDD (Test Driven Develop
 
 ## Notes
 
-Add the Moq Library reference to the ```BitcoinConverter.Tests/BitcoinConverter.Tests.csproj``` project:
-
-```
-cd ./BitcoinConverter.Tests
-dotnet add BitcoinConverter.Tests.csproj package Moq
-```
-
 Commands to compile and test the Dotnet Solution
 
 ```
