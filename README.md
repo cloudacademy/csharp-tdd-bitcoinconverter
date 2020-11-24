@@ -5,11 +5,9 @@ The following repo contains source code developed using TDD (Test Driven Develop
 
 ## Notes
 
-This branch (step8) creates a client console project to test the GitHub Action built DLL artifact - additonally adds badges to the README.md to render the current build status:
+This branch (step8) introduces a new client console project ([BitcoinConverter.Client](https://github.com/cloudacademy/csharp-tdd-bitcoinconverter/tree/step8/BitcoinConverter.Client)) to test the GitHub Action built DLL artifact - and additonally demonstrates how to add badges to the README.md to render the current build status:
 
-[BitcoinConverter.Client](https://github.com/cloudacademy/csharp-tdd-bitcoinconverter/tree/step8/BitcoinConverter.Client)
-
-Create a release version of the ```BitcoinConverter.Code``` Class Library - which will be used within the ```BitcoinConverter.Client``` console project:
+The following command can be used to **manually** create a release version of the ```BitcoinConverter.Code``` Class Library - which is used by the ```BitcoinConverter.Client``` console project:
 
 ```
 dotnet build --configuration Release
