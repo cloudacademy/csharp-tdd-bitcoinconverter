@@ -19,6 +19,28 @@ Create a new Dotnet Console client project:
 dotnet new console -o BitcoinConverter.Client --framework netcoreapp3.1
 ```
 
+Update the ```BitcoinConverter.Client.csproj``` project file to reference the ```BitcoinConverter.Code.dll``` library:
+
+```
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RuntimeIdentifiers>osx.10.14-x64;ubuntu.18.04-x64</RuntimeIdentifiers>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NewtonSoft.Json" Version="12.0.3" />
+    <PackageReference Include="System.Text.Json" Version="4.7.2" />
+    <Reference Include="BitcoinConverter.Code.dll">
+      <HintPath>libraries\BitcoinConverter.Code.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
+```
+
 Commands to compile and test the Dotnet Solution
 
 ```
