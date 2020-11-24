@@ -46,7 +46,3 @@ dotnet build
 ```
 dotnet test
 ```
-
-```
-dotnet watch test
-```
