@@ -5,6 +5,8 @@ The following repo contains source code developed using TDD (Test Driven Develop
 
 ## Notes
 
+This branch (step3) refactors the unit tests and codebase to use the async/await keywords to manage asynchronous HTTP comms with the Bitcoin API online service
+
 Bitcoin Price Index API used within the code:
 
 ```
