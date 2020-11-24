@@ -48,5 +48,5 @@ dotnet test
 ```
 
 ```
-dotnet watch test
+DOTNET_USE_POLLING_FILE_WATCHER=1 dotnet watch -p BitcoinConverter.sln test
 ```
