@@ -11,6 +11,19 @@ Bitcoin Price Index API used within the code:
 https://api.coindesk.com/v1/bpi/currentprice.json
 ```
 
+Install Dotnet Core 3.1 on Ubuntu Vagrant instance:
+
+```
+{
+wget https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+sudo dpkg -i packages-microsoft-prod.deb
+sudo apt-get update
+sudo apt-get install -y apt-transport-https
+sudo apt-get update
+sudo apt-get install -y dotnet-sdk-3.1
+}
+```
+
 Create new Dotnet solution:
 
 ```
