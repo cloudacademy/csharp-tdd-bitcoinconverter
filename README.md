@@ -5,6 +5,8 @@ The following repo contains source code developed using TDD (Test Driven Develop
 
 ## Notes
 
+This branch (step5) refactors the unit tests and codebase to add addtional unit tests to test error conditions
+
 Commands to compile and test the Dotnet Solution
 
 ```
