@@ -5,11 +5,7 @@ The following repo contains source code developed using TDD (Test Driven Develop
 
 ## Notes
 
-Bitcoin Price Index API used within the code:
-
-```
-https://api.coindesk.com/v1/bpi/currentprice.json
-```
+This branch (step1) demonstrates using the ```dotnet``` command to setup the project structure and create the first set of unit tests using xUnit and the ```[Fact]``` attribute
 
 Install Dotnet Core 3.1 on Ubuntu Vagrant instance:
 
