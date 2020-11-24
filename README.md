@@ -1,3 +1,34 @@
 # csharp-tdd-bitcoinconverter
 
-[![Build Status](https://github.com/cloudacademy/csharp-tdd-bitcoinconverter/workflows/bitcoinconverter.build/badge.svg)](https://github.com/cloudacademy/csharp-tdd-bitcoinconverter/actions)
+[![Build Status](https://github.com/cloudacademy/csharp-tdd-bitcoinconverter/workflows/bitcoinconverter.build/badge.svg)](https://github.com/cloudacademy/# C# TDD Bitcoin Converter
+
+## Background
+The following repo contains source code developed using TDD (Test Driven Development) practices. The sample project implements a .Net Core 3.1 C# library which interacts with the [Bitcoin Price Index](https://www.coindesk.com/coindesk-api) api.
+
+## Notes
+
+This branch (step8) creates a client console project to test the GitHub Action built DLL artifact - additonally adds badges to the README.md to render the current build status:
+
+[BitcoinConverter.Client](https://github.com/cloudacademy/csharp-tdd-bitcoinconverter/tree/step8/BitcoinConverter.Client)
+
+Create a release version of the ```BitcoinConverter.Code``` Class Library - which will be used within the ```BitcoinConverter.Client``` console project:
+
+```
+dotnet build --configuration Release
+```
+
+Create a new Dotnet Console client project:
+
+```
+dotnet new console -o BitcoinConverter.Client --framework netcoreapp3.1
+```
+
+Commands to compile and test the Dotnet Solution
+
+```
+dotnet build
+```
+
+```
+DOTNET_USE_POLLING_FILE_WATCHER=1 dotnet watch -p BitcoinConverter.sln test
+```
