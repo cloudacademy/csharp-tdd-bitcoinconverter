@@ -5,6 +5,8 @@ The following repo contains source code developed using TDD (Test Driven Develop
 
 ## Notes
 
+This branch (step4) introduces the Moq library to mock out the external Bitcoin API service dependency
+
 Add the Moq Library reference to the ```BitcoinConverter.Tests/BitcoinConverter.Tests.csproj``` project:
 
 ```
