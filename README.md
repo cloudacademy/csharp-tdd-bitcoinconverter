@@ -5,6 +5,8 @@ The following repo contains source code developed using TDD (Test Driven Develop
 
 ## Notes
 
+This branch (step2) refactors current unit tests and codebase using the ```[Theory]``` attribute - also demonstrates the use of the ```dotnet watch``` command to automatically execute all unit tests whenever the source code is changed
+
 Commands to compile and test the Dotnet Solution
 
 ```
