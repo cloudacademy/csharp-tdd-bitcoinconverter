@@ -7,6 +7,8 @@ The following repo contains source code developed using TDD (Test Driven Develop
 
 :metal:
 
+Note: If you intend to follow along and complete the full demonstration then please fork this repo - as step 9 will require you to create a GitHub Secret to store the [Coveralls](https://coveralls.io/) project token. Coveralls is used to create code coverage reports and visuals.
+
 ## Prerequisites
 **.Net Core 3.1** is required for this project. 
 
@@ -182,4 +184,3 @@ dotnet --version
 ```
 
 Back on your local workstation, you can use Visual Studio Code or any other editor to open and modify the contents of the current folder - with all changes being automatically synced back into the ```/vagrant``` directory within the Vagrant instance.
-
