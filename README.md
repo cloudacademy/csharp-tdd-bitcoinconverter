@@ -5,6 +5,8 @@
 ## Background
 The following repo contains source code developed using TDD (Test Driven Development) practices. The sample project implements a .Net Core 3.1 C# library which interacts with the [Bitcoin Price Index](https://www.coindesk.com/coindesk-api) api.
 
+![Bitcoin Converter Architecture](./docs/csharp-tdd-bitcoinconverter.png)
+
 :metal:
 
 Note: If you intend to follow along and complete the full demonstration then please fork or setup a new GitHub repo - as step 9 will require you to create a GitHub Secret to store the [Coveralls](https://coveralls.io/) project token. Coveralls is used to create code coverage reports and visuals.
