@@ -47,6 +47,18 @@ Commands to compile and test the Dotnet Solution
 dotnet build
 ```
 
+Build executable for MacOS
+
 ```
-DOTNET_USE_POLLING_FILE_WATCHER=1 dotnet watch -p BitcoinConverter.sln test
+dotnet publish -r osx.10.14-x64
+```
+
+Build executable for Ubuntu
+
+```
+dotnet publish -r ubuntu.18.04-x64
+```
+
+```
+dotnet publish -r ubuntu.18.04-x64 --configuration Release /p:TargetFramework=netcoreapp3.1 /p:PublishSingleFile=true /p:PublishTrimmed=true -o ./executable
 ```
