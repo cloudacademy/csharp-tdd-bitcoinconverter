@@ -7,8 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="NewtonSoft.Json" Version="12.0.3" />
-    <PackageReference Include="System.Text.Json" Version="4.7.2" />
     <Reference Include="BitcoinConverter.Code.dll">
       <HintPath>libraries\BitcoinConverter.Code.dll</HintPath>
     </Reference>
