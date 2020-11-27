@@ -33,6 +33,12 @@ jobs:
 
     - name: Test
       run: dotnet test --no-restore --verbosity normal
+
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v1.0.0
+      with:
+        name: BitcoinConverter.Code.dll
+        path: BitcoinConverter.Code/bin/Release/netcoreapp3.1/BitcoinConverter.Code.dll
 ```
 
 Commands to compile and test the Dotnet Solution
