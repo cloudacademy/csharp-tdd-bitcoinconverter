@@ -51,3 +51,4 @@ jobs:
           BitcoinConverter.Code/bin/Release/netcoreapp3.1/BitcoinConverter.Code.dll
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
