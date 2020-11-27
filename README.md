@@ -62,6 +62,8 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
 
+Signup for a Coveralls account and permit/link it to your GitHub account
+
 To enable code coverage reports, the following snippet needs to be added into the `<ItemGroup>` within the [BitcoinConverter.Tests.csproj](https://github.com/cloudacademy/csharp-tdd-bitcoinconverter/blob/step9/BitcoinConverter.Tests/BitcoinConverter.Tests.csproj) project file
 
 ```
@@ -69,18 +71,4 @@ To enable code coverage reports, the following snippet needs to be added into th
   <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
   <PrivateAssets>all</PrivateAssets>
 </PackageReference>
-```
-
-Commands to compile and test the Dotnet Solution
-
-```
-dotnet build
-```
-
-```
-dotnet test
-```
-
-```
-DOTNET_USE_POLLING_FILE_WATCHER=1 dotnet watch -p BitcoinConverter.sln test
 ```
