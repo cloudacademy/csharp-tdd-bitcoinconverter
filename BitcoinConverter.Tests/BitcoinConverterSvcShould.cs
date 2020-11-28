@@ -97,7 +97,7 @@ namespace CloudAcademy.Bitcoin.Tests
         }
 
         [Fact]
-        public async void ConvertBitcoins_BitcoinAPIServiceUnavailable_ReturnsZero()
+        public async void ConvertBitcoins_BitcoinAPIServiceUnavailable_ReturnsNegativeOne()
         {
             var handlerMock = new Mock<HttpMessageHandler>();
             var response = new HttpResponseMessage
